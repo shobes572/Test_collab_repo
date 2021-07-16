@@ -4,36 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>What's Streaming?</title>
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    
+    
   </head>
-    <body>
-        <main>
-
-          <nav>
-            <div class="nav-wrapper">
-              <a href="#" class="brand-logo">What's Streaming?</a>
-              </div>
-          </nav>
-          <br>
-          <div class="container row">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s9">
-                  <i class="material-icons prefix">movie_filter</i>
-                  <input id="icon_prefix" type="text" class="validate">
-                  <label for="icon_prefix">Enter title or genre</label>
-                </div>
-              </div>
-            </form>
+  <body>
+    <main>
+      
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">What's Streaming?</a>
+        </div>
+      </nav>
+      <br>
+      <div class="container row">
+        <form id="frmUserSearch" class="col s12">
+          <div class="row">
+            <div class="input-field col s9">
+              <i class="material-icons prefix">movie_filter</i>
+              <input id="txtUserInput" type="text" class="validate">
+              <label for="txtUserInput">Enter title or genre</label>
+            </div>
           </div>
-
-        </main>
+        </form>
+      </div>
+      
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="assets/js/script.js"></script>
-    </body>
+  </body>
 </html>
