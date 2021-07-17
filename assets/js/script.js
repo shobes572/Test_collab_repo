@@ -52,7 +52,36 @@ function initMovieSearch() {
                         location.assign('./results.html');
                     }
                 })
+            getStreams(TMDBid);    
         }
     });
 }
 
+//Function to get streaming links by movie ID from first request
+function getStreams(movieID){
+    //event.preventDefault();
+
+    var serviceURL = "https://streaming-availability.p.rapidapi.com/get/basic?country=us&tmdb_id=movie%2F" + movieID;
+
+    fetch( serviceURL, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "0657b44467mshde3acf6a8ef9c72p1e4a38jsn6f40f748d5ac",
+            "x-rapidapi-host": "streaming-availability.p.rapidapi.com"
+        }
+    })
+
+    .then(function(response){
+        console.log(response);
+        return response.json();
+    })
+
+    .then(function(data){
+       var linkArray = Object.values(data.streamingInfo);
+         
+        for (let i = 0; i < linkArray.length; i++){
+            // the links show in console, will add materialize styling
+            console.log(linkArray[i].us.link);
+        }
+    });
+};
