@@ -34,6 +34,7 @@ function initMovieSearch() {
     var TMDBEndpoint = `https://api.themoviedb.org/3/search/movie${TMDBApikey}`;
     var submitSearch = `${TMDBEndpoint}&query=${userInput.val()}`;
     fetch(submitSearch)
+<<<<<<< HEAD
         .then(function (response) {
             return response.json();
         })
@@ -60,15 +61,55 @@ function initMovieSearch() {
                 .finally(function () {
                     exitSearchPage(handledResult);
                 });
+=======
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        var handledResult = handleTMDBResponse(data);
+        var runtimeDeffered = [];
+        for (i in handledResult) {
+            runtimeDeffered.push(fetch(getTMDBRuntimeUrl(handledResult[i].TMDBid)))
+        }
+        // function to handle secondary response data from TMDB for movie runtime
+        Promise.all(runtimeDeffered)
+        .then(function(responses){
+            responses.forEach(function(response) {
+                response.json()
+                .then(function(data) {
+                    for (i in handledResult) {
+                        if (handledResult[i].TMDBid === data.id) {
+                            handledResult[i].runtime = data.runtime;
+                        }
+                    }
+                })
+                .then(function() {
+                    if (exitValidation(handledResult)) {exitSearchPage(handledResult);}
+                });
+            });
+>>>>>>> a7000e0743e0ad8e8fc87b4d7acd4322bc17b25e
         });
+}
+function exitValidation(handledResult) {
+    for (i in handledResult) {
+        if (handledResult[i].runtime === 0) {return false;}
+    }
+    return true;
 }
 // function to export obj to localstorage and load results
 function exitSearchPage(passedObject) {
+<<<<<<< HEAD
     // console.log(JSON.stringify(passedObject))
     localStorage.setItem('QueryResults', JSON.stringify(passedObject));
     location.assign('./results.html');
     var test = JSON.parse(localStorage.getItem('QueryResults'));
     console.log(test);
+=======
+    localStorage.setItem('QueryResults', JSON.stringify(passedObject));
+    location.assign('./results.html');
+    // var test = JSON.parse(localStorage.getItem('QueryResults'));
+    // console.log(test);
+>>>>>>> a7000e0743e0ad8e8fc87b4d7acd4322bc17b25e
 }
 // function to handle inital response data from TMDB with list of movies
 function handleTMDBResponse(data) {
