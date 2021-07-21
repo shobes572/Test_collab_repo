@@ -35,21 +35,26 @@ function initMovieSearch() {
                             handledResult[i].runtime = data.runtime;
                         }
                     }
+                })
+                .then(function() {
+                    if (exitValidation(handledResult)) {exitSearchPage(handledResult);}
                 });
-            })
-        })
-        .finally(function() {
-            exitSearchPage(handledResult);
+            });
         });
     });
 }
+function exitValidation(handledResult) {
+    for (i in handledResult) {
+        if (handledResult[i].runtime === 0) {return false;}
+    }
+    return true;
+}
 // function to export obj to localstorage and load results
 function exitSearchPage(passedObject) {
-    console.log(JSON.stringify(passedObject))
     localStorage.setItem('QueryResults', JSON.stringify(passedObject));
-    // location.assign('./results.html');
-    var test = JSON.parse(localStorage.getItem('QueryResults'));
-    console.log(test);
+    location.assign('./results.html');
+    // var test = JSON.parse(localStorage.getItem('QueryResults'));
+    // console.log(test);
 }
 // function to handle inital response data from TMDB with list of movies
 function handleTMDBResponse(data) {
