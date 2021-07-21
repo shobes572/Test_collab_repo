@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&family=Merriweather:wght@700&display=swap"
-    rel="stylesheet" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Results for Query: </title>
 </head>
+
 <body>
     <header>
         <nav class="nav-wrapper black">
@@ -31,7 +33,7 @@
         </nav>
     </header>
     <main class="row">
-        <form class="col s2">
+        <form class="col s4">
             <!-- Text input -->
             <div class="row">
                 <div class="input-field col s6">
@@ -42,58 +44,81 @@
             <!-- Submit button -->
             <div class="row">
                 <div class="input-field col s6">
-                    <button class="btn waves-effect waves-light" type="submit">Submit</button>
+                    <button class="btn black waves-effect waves-light" type="submit">Submit</button>
                 </div>
             </div>
             <!-- Checkboxes on form for filtering -->
-            <div class="row"> 
+            <div class="row">
                 <div class="input-field col s6">
                     <p>
                         <label>
-                            <input type="checkbox" class="filled-in" checked="checked" />
+                            <input type="checkbox" class="filled-in checkbox-black" checked="checked" />
                             <span>Netflix</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input type="checkbox" class="filled-in" checked="checked" />
+                            <input type="checkbox" class="filled-in checkbox-black" checked="checked" />
                             <span>Prime Video</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input type="checkbox" class="filled-in" checked="checked" />
+                            <input type="checkbox" class="filled-in checkbox-black" checked="checked" />
                             <span>Disney Plus</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input type="checkbox" class="filled-in" checked="checked" />
+                            <input type="checkbox" class="filled-in checkbox-black" checked="checked" />
                             <span>HBO Max</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input type="checkbox" class="filled-in" checked="checked" />
+                            <input type="checkbox" class="filled-in checkbox-black" checked="checked" />
                             <span>Paramount</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input type="checkbox" class="filled-in" checked="checked" />
+                            <input type="checkbox" class="filled-in checkbox-black" checked="checked" />
                             <span>Hulu</span>
                         </label>
                     </p>
                 </div>
             </div>
         </form>
-        <div id="results" class="col">
-            
+
+        <div class="row" id="accord-parent">
+            <div class="col s12 m7">
+                <div class="card horizontal">
+                    <div class="card-image">
+                        <!-- <img class="activator" 
+                            src="https://image.tmdb.org/t/p/original/ykUEbfpkf8d0w49pHh0AD2KrT52.jpg"> -->
+                    </div>
+                    
+                    <div class="card-content">
+                        <!-- <p class="activator">results content</p> -->
+                    </div>
+
+
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Streaming Here<i class="material-icons right">close</i></span>
+                        <!-- <p>Streaming info and URL links</p>  -->
+                    </div>
+                </div>
+            </div>
         </div>
+        </div>
+
+
+
     </main>
     <footer></footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
+
 </html>

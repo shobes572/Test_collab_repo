@@ -1,4 +1,8 @@
-.flex {
-    display: flex;
-    flex-wrap: wrap;
+.checkbox-black[type="checkbox"].filled-in:checked+span:not(.lever):after {
+    border: 2px solid black;
+    background-color: black; 
+
 }
+
+
+
