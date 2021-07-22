@@ -91,10 +91,6 @@ function handleTMDBResponse(data) {
     }
     return moviesPassage;
 }
-// function to generate query URL for Streaming Service Availability
-function getStreamingAvailabilityUrl(id) {
-    return `https://streaming-availability.p.rapidapi.com/get/basic?country=us&tmdb_id=movie%2F${id}`;
-}
 // function to generate query URL for Additional Movie info from TMDB
 function getTMDBRuntimeUrl(id) {
     return `https://api.themoviedb.org/3/movie/${id}${TMDBApikey}`;
@@ -118,15 +114,21 @@ function SAvailValidation(id) {
 // function to display the retreived Service Availability
 function SAvailDisplay(id, services, element) {
     // services.forEach(function(service){
-    //     var listEL = $('<li>');
-    //     var streamEL = element.children('.streamingList');
+        //     var listEL = $('<li>');
+        //     var streamEL = element.children('.streamingList');
+        
+        //     streamEL.append(listEL);
+        // });
+    }
 
-    //     streamEL.append(listEL);
-    // });
-}
+
 // function to get streaming availability data on request - Streaming Availability API
+function getStreamingAvailabilityUrlSAvail(id) {
+    return `https://streaming-availability.p.rapidapi.com/get/basic?country=us&tmdb_id=movie%2F${id}`;
+}
+// function to generate query URL for Streaming Service Availability
 function getStreamingAvailabilitySAvail(id) {
-    SAvailUrl = getStreamingAvailabilityUrl(id);
+    var SAvailUrl = getStreamingAvailabilityUrlSAvail(id);
     var SAvailHeaderObj = {
         "method": "GET",
         "headers": {
@@ -151,9 +153,13 @@ function getStreamingAvailabilitySAvail(id) {
             console.log(serviceData)
         });
 }
+// function to get streaming availability data on request - Streaming Availability API
+function getStreamingAvailabilityUrlGuidebox(id) {
+    return `https://streaming-availability.p.rapidapi.com/get/basic?country=us&tmdb_id=movie%2F${id}`;
+}
 // function to get streaming availability data on request - Guidebox API
 function getStreamingAvailabilityGuidebox(id) {
-    SAvailUrl = getStreamingAvailabilityUrl(id);
+    var guideboxUrl = getStreamingAvailabilityUrlGuidebox(id);
     var SAvailHeaderObj = {
         "method": "GET",
         "headers": {
@@ -161,7 +167,7 @@ function getStreamingAvailabilityGuidebox(id) {
             'x-rapidapi-host': 'https://streaming-availability.p.rapidapi.com'
         }
     };
-    fetch(SAvailUrl, SAvailHeaderObj)
+    fetch(guideboxUrl, SAvailHeaderObj)
         .then(function (response) {
             console.log(response)
             return response.json();
