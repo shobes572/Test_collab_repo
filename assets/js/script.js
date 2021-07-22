@@ -15,7 +15,9 @@ frmSearch.on('submit', function(event) {
     initMovieSearch();
 });
 // Event listener to populate elements on the page
+initResults();
 function initResults() {
+    console.log(location.pathname)
     if (location.pathname === '/results.html') {
         $('.collapsible').collapsible();
         var data = JSON.parse(localStorage.getItem('QueryResults'));
@@ -187,4 +189,3 @@ function popMovieEl(QueryResults) {
         listEL.append(bodyEL);
         accordEl.append(listEL);
 }
-initResults();
