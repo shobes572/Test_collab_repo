@@ -15,10 +15,10 @@ frmSearch.on('submit', function(event) {
     initMovieSearch();
 });
 // Event listener to populate elements on the page
-initResults();
 function initResults() {
-    console.log(location.pathname)
-    if (location.pathname === '/results.html') {
+    var locArray = location.pathname.split("/");
+    var lastIndex = locArray.length - 1;
+    if (locArray[lastIndex] === 'results.html') {
         $('.collapsible').collapsible();
         var data = JSON.parse(localStorage.getItem('QueryResults'));
         data.forEach(function(movieObj){popMovieEl(movieObj)});
@@ -189,3 +189,4 @@ function popMovieEl(QueryResults) {
         listEL.append(bodyEL);
         accordEl.append(listEL);
 }
+initResults();
