@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,11 +8,9 @@
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Results for Query: </title>
+    <title>What's Streamin'</title>
 </head>
-
 <body>
     <header>
         <nav class="nav-wrapper black">
@@ -33,22 +30,22 @@
         </nav>
     </header>
     <main class="row">
-        <form class="col s4">
+        <form id="frmUserSearch" class="col m4 s12">
             <!-- Text input -->
             <div class="row">
-                <div class="input-field col s6">
-                    <input placeholder="Movie Title" id="user_input" type="text" class="validate">
-                    <label for="user_input">Enter a Movie Title</label>
+                <div class="input-field col m6 s12">
+                    <input placeholder="Movie Title" id="txtUserInput" type="text" class="validate">
+                    <label for="txtUserInput">Enter a Movie Title</label>
                 </div>
             </div>
             <!-- Submit button -->
             <div class="row">
-                <div class="input-field col s6">
+                <div class="input-field col m6 s12">
                     <button class="btn black waves-effect waves-light" type="submit">Submit</button>
                 </div>
             </div>
             <!-- Checkboxes on form for filtering -->
-            <div class="row">
+            <!-- <div class="row">
                 <div class="input-field col s6">
                     <p>
                         <label>
@@ -87,38 +84,13 @@
                         </label>
                     </p>
                 </div>
-            </div>
+            </div> -->
         </form>
-
-        <div class="row" id="accord-parent">
-            <div class="col s12 m7">
-                <div class="card horizontal">
-                    <div class="card-image">
-                        <!-- <img class="activator" 
-                            src="https://image.tmdb.org/t/p/original/ykUEbfpkf8d0w49pHh0AD2KrT52.jpg"> -->
-                    </div>
-                    
-                    <div class="card-content">
-                        <!-- <p class="activator">results content</p> -->
-                    </div>
-
-
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Streaming Here<i class="material-icons right">close</i></span>
-                        <!-- <p>Streaming info and URL links</p>  -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-
-
-
+        <ul id="accord-parent" class="col m8 s12 collapsible"></ul>
     </main>
     <footer></footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
-
 </html>

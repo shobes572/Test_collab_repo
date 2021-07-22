@@ -3,6 +3,9 @@
     background-color: black; 
 
 }
-
-
-
+.header-content {
+    font-size: x-large;
+}
+.body-content {
+    font-size: large;
+}
