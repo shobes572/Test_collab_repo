@@ -15,13 +15,13 @@ frmSearch.on('submit', function(event) {
     initMovieSearch();
 });
 // Event listener to populate elements on the page
-$(document).ready(function() {
+function initResults() {
     if (location.pathname === '/results.html') {
         $('.collapsible').collapsible();
         var data = JSON.parse(localStorage.getItem('QueryResults'));
         data.forEach(function(movieObj){popMovieEl(movieObj)});
     }
-});
+};
 // Function to search the movie title
 function initMovieSearch() {
     var TMDBEndpoint = `https://api.themoviedb.org/3/search/movie${TMDBApikey}`;
@@ -187,3 +187,4 @@ function popMovieEl(QueryResults) {
         listEL.append(bodyEL);
         accordEl.append(listEL);
 }
+initResults();
