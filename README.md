@@ -4,8 +4,8 @@ What's Streamin' is an interactive front end web application that can be utilize
 
 
 
-URL: 
+URL: https://shobes572.github.io/Whats_Streamin/
 
-<screenshot>
 
+![](whatsstreamin.png)
 
